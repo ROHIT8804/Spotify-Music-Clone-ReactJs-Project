@@ -1,0 +1,659 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* 
+body {
+    margin: 0;
+    background-color: rgb(25, 20, 20);
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    background-color: inherit;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 25px;
+}
+
+nav img {
+    height: 60px;
+    width: 60px;
+}
+
+ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+li a:hover {
+    color: rgb(30, 215, 96);
+}
+
+
+
+#download {
+    background-color: inherit;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+}
+
+#download h1 {
+    font-weight: 700;
+    line-height: 2;
+}
+
+#download h2 {
+    font-weight: 500;
+    line-height: 3;
+}
+
+#download button {
+    background-color: rgb(255, 255, 255);
+    padding: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 35px;
+}
+
+#download button:hover {
+    transform: scale(1.02);
+}
+
+@media (width <= 650px) {
+    #download button {
+        width: 100%;
+        margin-bottom: 10px; 
+    }
+}
+
+#difference-table {
+    background-color: rgb(246, 246, 246);
+    text-align: center;
+    padding: 20px 40px;
+}
+
+#difference-table table {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px 45px;
+}
+
+table th {
+    font-weight: 300;
+}
+
+table td {
+    border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.fa-circle-check {
+    color: rgb(30, 215, 96);
+    font-size: 30px;
+}
+
+.fa-circle-xmark {
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+}
+
+#difference-table h1 {
+    padding: 0 50px;
+    font-weight: 700;
+}
+
+#difference-table button {
+    background-color: rgb(25, 20, 20);
+    padding: 12px 40px;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+#premium {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+}
+
+#premium h2 {
+    margin: 0;
+}
+
+.price-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    text-align: center;
+    gap:20px;
+}
+
+.price-cards > article {
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(170, 170, 170);
+    padding: 20px;
+}
+
+.card-header {
+    border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.card-header span {
+    display: inline-block;
+    font-size: .75rem;
+    background-color: rgb(13, 114, 234);
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.card-header h3 {
+    margin-bottom: 0;
+}
+
+.card-header p {
+    margin: 0;
+    font-weight: 300;
+}
+
+.card-header li {
+    font-weight: 500;
+}
+
+@media (width <= 650px) {
+    .price-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+        padding: 20px;
+    }
+
+    .card-header span {
+        display: inline-block;
+    }
+}
+
+#students-offer {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+}
+
+#students-offer button{
+    background-color: rgb(255, 255, 255);
+    padding: 12px 40px;
+    font-family: inherit;
+    font-weight: 700;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(25, 20, 20);
+}
+
+#students-offer button:hover {
+    transform: scale(1.02);
+}
+
+form {
+    margin-top: 20px;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: left;
+}
+
+input#email,input#name,input#password {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-family: inherit;
+}
+
+
+@media (width <= 650px) {
+    input#first-name, input#last-name {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+form p {
+    margin-bottom: 0;
+}
+
+select#appType{
+    width: 100%;
+    padding: 5px;
+    font-family: inherit;
+    margin-bottom: 10px;
+}
+
+
+input#consent-checkbox {
+    cursor: pointer;
+}
+
+form button {
+    display: block;
+    margin-top: 10px;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer i {
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+footer i:hover {
+    color: rgb(30, 215, 96);
+}
+
+footer p {
+    color: rgb(170, 170, 170);
+} */
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    background-color: #262626;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 196px;
+    background-color: #191919;
+    padding: 24px;
+  }
+  .sidebar .logo img {
+    width: 130px;
+  }
+  .sidebar .navigation ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  .sidebar .navigation ul li {
+    padding: 10px 0px;
+  }
+  .sidebar .navigation ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .sidebar .navigation ul li a:hover,
+  .sidebar .navigation ul li a:active,
+  .sidebar .navigation ul li a:focus {
+    color: #ffffff;
+  }
+  .sidebar .navigation ul li a:hover .fa,
+  .sidebar .navigation ul li a:active .fa,
+  .sidebar .navigation ul li a:focus .fa {
+    color: #b3b3b3;
+  }
+  .sidebar .navigation ul li .fa {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .sidebar .navigation ul li a:hover .fa:hover,
+  .sidebar .navigation ul li a:hover .fa:active,
+  .sidebar .navigation ul li a:hover .fa:focus {
+    color: #ffffff;
+  }
+  .sidebar .policies {
+    position: absolute;
+    bottom: 100px;
+  }
+  .sidebar .policies ul {
+    list-style: none;
+  }
+  .sidebar .policies ul li {
+    padding-bottom: 5px;
+  }
+  .sidebar .policies ul li a {
+    color: #b3b3b3;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 10px;
+  }
+  .sidebar .policies ul li a:hover,
+  .sidebar .policies ul li a:active,
+  .sidebar .policies ul li a:focus {
+    text-decoration: underline;
+  }
+  
+  .main-container {
+    background-color: #161616;
+    margin-left: 245px;
+    margin-bottom: 100px;
+  }
+  .arrow{
+    margin-left: 245px;
+    margin-bottom: 100px;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #141414;
+    padding: 1px 30px;
+  }
+  .topbar .prev-next-buttons button {
+    color: #7a7a7a;
+    cursor: not-allowed;
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+    font-size: 18px;
+    border: 0px;
+    background-color: #090909;
+    margin-right: 10px;
+  }
+  .topbar .navbar {
+    display: flex;
+    align-items: center;
+  }
+  .topbar .navbar ul {
+    list-style: none;
+  }
+  .topbar .navbar ul li {
+    display: inline-block;
+    margin: 0px 8px;
+    width: 70px;
+  }
+  .topbar .navbar ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .topbar .navbar ul li a:hover,
+  .topbar .navbar ul li a:active,
+  .topbar .navbar ul li a:focus {
+    color: #ffffff;
+    font-size: 15px;
+  }
+  .topbar .navbar ul li.divider {
+    color: #ffffff;
+    font-size: 26px;
+    margin: 0px 20px;
+    width: auto;
+  }
+  .topbar .navbar button {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 30px;
+    border: 0px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  .topbar .navbar button:hover,
+  .topbar .navbar button:active,
+  .topbar .navbar button:focus {
+    background-color: #f2f2f2;
+  }
+  .spotify-playlists {
+    padding: 20px 40px;
+    background-color: #262626;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .list section {
+    flex: 0 0 calc(20% - 20px);
+    margin: 10px;
+  }
+  
+  .item {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden; /* Hide overflowing content */
+  }
+  .spotify-playlists h2 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .spotify-playlists .list {
+    display: flex;
+    gap: 70px;
+    overflow: hidden;
+  }
+  .spotify-playlists .list .item {
+    min-width: 140px;
+    width: 160px;
+    padding: 15px;
+    background-color: #1f1d1d;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all ease 0.4s;
+  }
+  .spotify-playlists .list .item:hover {
+    background-color: #131313;
+  }
+  .spotify-playlists .list .item img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .spotify-playlists .list .item .play {
+    position: relative;
+  }
+  .spotify-playlists .list .item .play .fa {
+    position: absolute;
+    right: 10px;
+    top: -60px;
+    padding: 18px;
+    background-color: #1db954;
+    border-radius: 100%;
+    opacity: 0;
+    transition: all ease 0.4s;
+  }
+  .spotify-playlists .list .item:hover .play .fa {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  .spotify-playlists .list .item h4 {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .spotify-playlists .list .item p {
+    color: #989898;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+  .spotify-playlists hr {
+    margin: 70px 0px 0px;
+    border-color: #636363;
+  }
+  
+  .preview {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #ae2896, #509bf5);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .preview h6 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .preview p {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .preview button {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 30px;
+    border: 0px;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+  .topbar .navbar .login {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 30px;
+    border: 0px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.topbar .navbar .login:hover{
+    color: black;
+}
+article button {
+    background-color: rgb(25, 20, 20);
+    padding: 12px 40px;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    width: 60%;
+}
+
+article button:hover {
+    transform: scale(1.02);
+}
+
+#logo {
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	margin: 30px;
+}
+
+
+form {
+	position: absolute;
+	min-width: 320px;
+	transform: translatex(140%);
+	display: flex;
+	flex-direction: column;
+	transition: 0.3s;
+  padding: 120px 0px;
+}
+
+#SignIn:checked ~ section #SignInFormData,
+#SignUp:checked ~ section #SignUpFormData {
+	transform: translatex(15%);
+}
+
+#SignIn:checked ~ section nav label:first-child,
+#SignUp:checked ~ section nav label:last-child {
+	margin-bottom: -2px;
+	border-bottom: 2px solid #1ed760;
+  background-color: #252525;
+}
+
+input,
+button {
+	color: #111;
+	border-radius: 50px;
+	padding: 15px 20px;
+	margin-bottom: 15px;
+	border: none;
+	outline: none;
+	font-size: 16px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+button {
+	background: #1ed760;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+form span {
+	margin-left: 20px;
+	display: inline;
+}
+
+form span label {
+	cursor: pointer;
+	font-size: 14px;
+	text-transform: lowercase;
+}
+
+input[type="checkbox"] {
+	cursor: pointer;
+	accent-color: #1ed760; /* #3498db; */
+}
+.searchbar-container {
+  padding-top: 10px;
+  padding-right: 50px;
+}
+.music-player {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  height: 5rem;
+  background-color: coral;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.play-pause {
+  height: 3rem;
+  width: 3rem;
+  vertical-align: center;
+  border-radius: 2rem;
+  border: none;
+}

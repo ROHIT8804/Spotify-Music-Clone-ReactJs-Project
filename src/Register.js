@@ -1,19 +1,15 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import {useUser} from './UserProvider';
-// import "./login.css";
 
-function Login() {
+function Register() {
 
   const [getData, setData] = useState({
     email: '',
+    name: '',
     password: '',
     appType: 'music'
   })
-
-  const {signInUser} = useUser();
-  
 
   const[getError,setError] = useState("");
 
@@ -27,12 +23,10 @@ function Login() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     setError('');
-    axios.post("https://academics.newtonschool.co/api/v1/user/login",getData).then((response)=>{
-               console.log(response.data);
-               signInUser({status:response.data.status,token:response.data.token})
-               navigate('/');
+    axios.post("https://academics.newtonschool.co/api/v1/user/signup",getData).then((response)=>{
+               console.log(response);
+               navigate('/login');
     }).catch((error)=>{
-      console.log(error);
       if(error.response && error.response.data && error.response.data.message){
         setError(error.response.data.message);
       }
@@ -45,17 +39,26 @@ function Login() {
 
   return (<>
     <section className="main-container">
-      <form onSubmit={onSubmitHandler}>
-         <h2 style={{color:'red'}}>{getError}</h2>
-        <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />
-        <input type="password" name="password" id="password"  value={getData.password} onChange={onChangeHandler} placeholder="Password" required autoComplete="off" />
+    {/* <div id="logo">
         
+        <h1>Register</h1>
+      </div> */}
+      {/* <h1>Register</h1> */}
+      <form onSubmit={onSubmitHandler}>
+      <h2 style={{color:'red'}}>{getError}</h2>
+        <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />
+        <input type="text" name="name" id="name" value={getData.userName} onChange={onChangeHandler} placeholder="User Name" required autoComplete="off" />
+        <input type="password" name="password" id="password"  value={getData.password} onChange={onChangeHandler} placeholder="Password" required autoComplete="off" />
+
+        {/* <label for="appType">App Type</label>
+        <select name="appType" onChange={onChangeHandler} id="appType" required>
+          <option value="music">music</option>
+          <option value="album">album</option>
+        </select> */}
         <button type="submit">SUBMIT</button>
       </form>
-      
     </section>
-    
   </>)
 
 }
-export default Login;
+export default Register;

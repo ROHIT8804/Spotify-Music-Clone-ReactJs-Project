@@ -1,69 +1,46 @@
-import React, { useEffect } from "react";
-import SpotifyWebApi from "spotify-web-api-js";
-import { useStateValue } from "./StateProvider";
-import Player from "./Player";
-import { getTokenFromResponse } from "./spotify";
-import "./App.css";
-import Login from "./Login";
+import logo from './logo.svg';
+import './App.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import Login from './Login';
+import Register from './Register';
+import Home from './Home';
+import Header from './Header';
+import Library from './Library';
+import { Navigate, BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
+import { useUser } from './UserProvider';
 
-const s = new SpotifyWebApi();
+function ProtectedRoute({ children }) {
+  const { getUser } = useUser();
+  if (getUser && getUser.status == "success") {
+    return children;
+  }
+  else {
+    return <Navigate to={"/login"} />
+  }
+}
+
 
 function App() {
-  const [{ token }, dispatch] = useStateValue();
 
-  useEffect(() => {
-    // Set token
-    const hash = getTokenFromResponse();
-    window.location.hash = "";
-    let _token = hash.access_token;
-
-    if (_token) {
-      s.setAccessToken(_token);
-
-      dispatch({
-        type: "SET_TOKEN",
-        token: _token,
-      });
-
-      s.getPlaylist("37i9dQZEVXcJZyENOWUFo7").then((response) =>
-        dispatch({
-          type: "SET_DISCOVER_WEEKLY",
-          discover_weekly: response,
-        })
-      );
-
-      s.getMyTopArtists().then((response) =>
-        dispatch({
-          type: "SET_TOP_ARTISTS",
-          top_artists: response,
-        })
-      );
-
-      dispatch({
-        type: "SET_SPOTIFY",
-        spotify: s,
-      });
-
-      s.getMe().then((user) => {
-        dispatch({
-          type: "SET_USER",
-          user,
-        });
-      });
-
-      s.getUserPlaylists().then((playlists) => {
-        dispatch({
-          type: "SET_PLAYLISTS",
-          playlists,
-        });
-      });
-    }
-  }, [token, dispatch]);
+  axios.interceptors.request.use(async (config) => {
+    config.headers['projectid'] = "f104bi07c490";
+    return config;
+  })
 
   return (
-    <div className="app">
-      {!token && <Login />}
-      {token && <Player spotify={s} />}
+    <div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/library" element={<ProtectedRoute>
+            <Library />
+          </ProtectedRoute>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
