@@ -19,7 +19,6 @@ function Home({onSearch}) {
   const [addedToWatchlist, setAddedToWatchlist] = useState(false);
 
   const {getUser} = useUser();
-  console.log(selectedMusic);
 
   const listOfDetails = async () => {
     axios.get('https://academics.newtonschool.co/api/v1/music/song').then((response) => {
@@ -82,6 +81,7 @@ const handleAddToFavorite = () => {
   });
 };
   const handleMusicClick = (clickedMusic) => {
+    console.log(clickedMusic);
     setSelectedMusic(clickedMusic);
   };
   const playPauseAudio = () => {
@@ -189,6 +189,29 @@ const [start] = useState("0");
             </>
         )}
   </section> */}
+  {selectedMusic && (
+  <section className="music-player">
+    <img src={selectedMusic.thumbnail} alt={selectedMusic.title} height="50" width="50" />
+    {getUser?.status === "success" ? (
+      <>
+        <div className="song-info">
+                <div>{selectedMusic.title}</div>
+                <div title={selectedMusic.artistList} className="artist-list">
+                {selectedMusic.artistList}
+                </div>
+            </div>
+            <button onClick={playPauseAudio} id="play" className="play-pause">
+            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          </button>
+      </>
+    ) : (
+      <>
+        <p>Please Sign Up First</p>
+        <button onClick={() => navigate("/register")}>SignUp here!</button>
+      </>
+    )}
+  </section>
+)}
 
   </div>)
 
