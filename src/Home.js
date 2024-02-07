@@ -161,34 +161,6 @@ const [start] = useState("0");
       }
     </div>
   </div>
-  {/* <section className="music-player">
-        <img src={selectedMusic.thumbnail} alt={selectedMusic.title} height="50" width="50" />
-        {getUser.status == "success" ? (
-            <>
-            <div className="song-info">
-                <div>{selectedMusic.title}</div>
-                <div title={artistList} className="artist-list">
-                {artistList}
-                </div>
-            </div>
-            <button onClick={playPauseAudio} id="play" className="play-pause">
-                {isPlaying ? <PauseIcon /> : <PlayIcon />}
-            </button>
-            <div>{start}</div>
-            <div>{end}</div>
-            <input type="range" name="" id="" max={50} value={5} />
-            <audio src={selectedMusic.audio_url} ref={audioRef} />
-            <div className="heart-icon" onClick={handleAddToFavorite}>
-                {addedToWatchlist ? <FaHeart /> : <FaRegHeart />}
-            </div>
-            </>
-        ) : (
-            <>
-            <p>Please Sign Up First</p>
-            <button onClick={() => navigate("/signup")}>SignUp here!</button>
-            </>
-        )}
-  </section> */}
   {selectedMusic && (
   <section className="music-player">
     <img src={selectedMusic.thumbnail} alt={selectedMusic.title} height="50" width="50" />
@@ -203,6 +175,13 @@ const [start] = useState("0");
             <button onClick={playPauseAudio} id="play" className="play-pause">
             {isPlaying ? <PauseIcon /> : <PlayIcon />}
           </button>
+          <div>{start}</div>
+          <div>{end}</div>
+          <input type="range" name="" id="" max={50} value={5} />
+          <audio src={selectedMusic?.audio_url} ref={audioRef} />
+          <div className="heart-icon" onClick={handleAddToFavorite}>
+            {addedToWatchlist ? <FaHeart /> : <FaRegHeart />}
+          </div>
       </>
     ) : (
       <>
