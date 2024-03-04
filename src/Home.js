@@ -53,23 +53,28 @@ function Home({onSearch}) {
     }
     }
 }, [isPlaying, audioRef]);
+
 const addToFavorite = async (songId, token) => {
-  const url = `https://academics.newtonschool.co/api/v1/music/favorites/like`;
-  return fetch(url, {
-  method: "PATCH",
-  headers: {
-      Authorization: `Bearer ${token}`,
-      projectId: "f104bi07c490",
-      "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ songId }),
-  }).then((response) => {
-  if (!response.ok) {
-      throw new Error("Failed to add to watchlist");
-  }
-  return response.json();
+  console.log("58",songId,token)
+  if(token){
+    const url = `https://academics.newtonschool.co/api/v1/music/favorites/like`;
+    return fetch(url, {
+    method: "PATCH",
+    headers: {
+        Authorization: `Bearer ${getUser.token}`,
+        projectId: "f104bi07c490",
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ songId }),
+    }).then((response) => {
+    if (!response.ok) {
+        throw new Error("Failed to add to watchlist");
+    }
+    return response.json();
   });
+  }
 };
+
 const handleAddToFavorite = () => {
   addToFavorite(selectedMusic?._id, getUser.status == "success")
   .then((data) => {
@@ -123,21 +128,18 @@ const [start] = useState("0");
   return (
   <div className="main-container">
      <div id="download" style={{width:"100%"}}>
-      <section>
-        <button onClick={()=>onFilterSelection("Trending songs")}>
-          <i className="fa-brands fa-google-play fa-xl"></i>
+      <div className='navClass'>
+        <a onClick={()=>onFilterSelection("Trending songs")}>
           Trending songs
-        </button>
-        <button onClick={()=>onFilterSelection("Top 50 of this month")}>
-          <i className="fa-brands fa-apple fa-xl"></i>
+        </a>
+        <a onClick={()=>onFilterSelection("Top 50 of this month")}>
           Top 50 of this month
-        </button>
-        <button onClick={()=>onFilterSelection("Top 20 of this week")}>
-          <i className="fa-brands fa-apple fa-xl"></i>
+        </a>
+        <a onClick={()=>onFilterSelection("Top 20 of this week")}>
           Top 20 of this week
-        </button>
+        </a>
         <input type="text" placeholder='Search Here' onChange={onSearchDetails}/>
-      </section>
+      </div>
     </div>
   <div className="spotify-playlists">
     <h2>Spotify Playlists</h2>
@@ -152,6 +154,7 @@ const [start] = useState("0");
                   <span className="fa fa-play"></span>
                 </div>
                 <h4>{obj?.title}</h4>
+                <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
                 {/* <p>{obj?.artist[0]?.description}</p> */}
               </div>
             </article>

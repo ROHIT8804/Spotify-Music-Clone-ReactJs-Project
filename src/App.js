@@ -5,10 +5,11 @@ import Login from './Login';
 import Register from './Register';
 import Home from './Home';
 import Header from './Header';
-import Library from './Library';
+import Premium from './Premium';
 import { Navigate, BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import { useUser } from './UserProvider';
+import Liked from './Liked';
 
 function ProtectedRoute({ children }) {
   const { getUser } = useUser();
@@ -19,7 +20,6 @@ function ProtectedRoute({ children }) {
     return <Navigate to={"/login"} />
   }
 }
-
 
 function App() {
 
@@ -36,9 +36,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/library" element={<ProtectedRoute>
-            <Library />
+          <Route path="/liked" element={<ProtectedRoute>
+            <Liked />
           </ProtectedRoute>} />
+          <Route path="/premium" element={<Premium />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useUser } from './UserProvider';
 // import "./header.css"
-import { SearchBar } from './SearchBar';
 
 function Header() {
   const { getUser, signOutUser } = useUser();
-  // const {search, setSearch} = use
 
   const onChangeHandler = () => {
     localStorage.removeItem("token");
@@ -13,7 +11,6 @@ function Header() {
   }
   
   return (<>
-      <Link to="/">
         <div className="sidebar">
           <div className="logo">
             <a href="#">
@@ -24,16 +21,16 @@ function Header() {
           <div className="navigation">
             <ul>
               <li>
-                <a href="#">
+                <Link to="/">
                   <span className="fa fa-home"></span>
                   <span>Home</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="/premium">
                   <span className="fa fas fa-book"></span>
-                  <span>Your Library</span>
-                </a>
+                  <span>Premium</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -48,10 +45,10 @@ function Header() {
               </li>
 
               <li>
-                <a href="#">
-                  <span className="fa fas fa-heart"></span>
+                <Link to="/liked">
+                  <span className="fa fas fa-book"></span>
                   <span>Liked Songs</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -67,7 +64,6 @@ function Header() {
             </ul>
           </div>
         </div>
-      </Link>
       <div className="">
         <div className="topbar">
           <div className="prev-next-buttons">

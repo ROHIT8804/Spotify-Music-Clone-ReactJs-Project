@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import {useUser} from './UserProvider';
-// import "./login.css";
+import style from "./Login.module.css";
 
 function Login() {
 
@@ -45,6 +45,7 @@ function Login() {
 
   return (<>
     <section className="main-container">
+      <h1>Log in to Spotify</h1>
       <form onSubmit={onSubmitHandler}>
          <h2 style={{color:'red'}}>{getError}</h2>
         <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />

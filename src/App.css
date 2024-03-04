@@ -496,6 +496,13 @@ footer p {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .spotify-playlists .list .item h5 {
+    color: #d6d2d2ed;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
   .spotify-playlists .list .item p {
     color: #989898;
     font-size: 12px;
@@ -656,4 +663,19 @@ input[type="checkbox"] {
   vertical-align: center;
   border-radius: 2rem;
   border: none;
+}
+.navClass a {
+  color: #b3b3b3;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 15px;
+}
+.navClass a:hover {
+  font-weight: bold;
+  color: white;
+  font-size: 15px;
+}
+.heart-icon{
+  cursor: pointer;
 }
