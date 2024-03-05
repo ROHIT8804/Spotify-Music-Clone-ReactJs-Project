@@ -62,16 +62,26 @@ function Liked() {
         });
         }
       };
-    const handleAddToFavorite = () => {
-        addToFavorite(selectedMusic?._id, getUser.status == "success")
-        .then((data) => {
-            setAddedToWatchlist(true);
-            console.log("Successfully added to watchlist!", data);
-        })
-        .catch((error) => {
-            console.error("Failed to add to watchlist:", error);
-        });
-      };
+      const getTime = (duration) => {
+        console.log("duration", duration);
+        const endTime = Math.ceil(duration);
+        let min = Math.floor(endTime / 60);
+        let sec = endTime % 60;
+        return `${min}:${sec}`;
+    };
+      useEffect(() => {
+        if (audioRef.current) {
+        const endTime = getTime(audioRef.current.duration);
+        console.log("endTime", endTime);
+        setEnd(endTime);
+        if (isPlaying) {
+            audioRef.current.play();
+            console.log("duration", audioRef.current.duration);
+        } else {
+            audioRef.current.pause();
+        }
+        }
+    }, [isPlaying, audioRef]);
     
     useEffect(()=>{
         listOfData();
@@ -92,7 +102,7 @@ function Liked() {
                             <span className="fa fa-play"></span>
                             </div>
                             <h4>{obj?.title}</h4>
-                            <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
+                            {/* <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5> */}
                             {/* <p>{obj?.artist[0]?.description}</p> */}
                         </div>
                         </article>
@@ -121,9 +131,9 @@ function Liked() {
                         <div>{end}</div>
                         <input type="range" name="" id="" max={50} value={5} />
                         <audio src={selectedMusic?.audio_url} ref={audioRef} />
-                        <div className="heart-icon" onClick={handleAddToFavorite}>
+                        {/* <div className="heart-icon" onClick={handleAddToFavorite}>
                             {addedToWatchlist ? <FaHeart /> : <FaRegHeart />}
-                        </div>
+                        </div> */}
                     </>
                     ) : (
                     <>
