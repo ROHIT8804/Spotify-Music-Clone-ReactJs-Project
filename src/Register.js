@@ -39,11 +39,7 @@ function Register() {
 
   return (<>
     <section className="main-container">
-    {/* <div id="logo">
-        
-        <h1>Register</h1>
-      </div> */}
-      {/* <h1>Register</h1> */}
+    <div id='message'>Register to Spotify</div>
       <form onSubmit={onSubmitHandler}>
       <h2 style={{color:'red'}}>{getError}</h2>
         <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />

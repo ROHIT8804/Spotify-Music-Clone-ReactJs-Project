@@ -45,7 +45,7 @@ function Login() {
 
   return (<>
     <section className="main-container">
-      <h1>Log in to Spotify</h1>
+      <div id='message'>Log in to Spotify</div>
       <form onSubmit={onSubmitHandler}>
          <h2 style={{color:'red'}}>{getError}</h2>
         <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />

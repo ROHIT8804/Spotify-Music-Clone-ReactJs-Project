@@ -44,10 +44,6 @@ li a:hover {
     padding: 10px 20px;
 }
 
-#download h1 {
-    font-weight: 700;
-    line-height: 2;
-}
 
 #download h2 {
     font-weight: 500;
@@ -678,4 +674,17 @@ input[type="checkbox"] {
 }
 .heart-icon{
   cursor: pointer;
+}
+#message {
+  font-weight: 800;
+    line-height: 2;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    min-width: 312px;
+    transform: translatex(140%);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    padding: 39px 9px;
 }

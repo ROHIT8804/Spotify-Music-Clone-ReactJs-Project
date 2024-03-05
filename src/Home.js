@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
 import {useUser} from './UserProvider';
-import { MusicPlayer } from './MusicPlayer';
-import { MusicProvider } from './MusicProvider';
 import { ReactComponent as PlayIcon } from "./assets/play.svg";
 import { ReactComponent as PauseIcon } from "./assets/pause.svg";
 import { useNavigate } from "react-router-dom";
