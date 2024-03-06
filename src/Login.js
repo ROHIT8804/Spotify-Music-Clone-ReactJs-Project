@@ -45,15 +45,22 @@ function Login() {
 
   return (<>
     <section className="main-container">
-      <div id='message'>Log in to Spotify</div>
-      <form onSubmit={onSubmitHandler}>
-         <h2 style={{color:'red'}}>{getError}</h2>
-        <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />
-        <input type="password" name="password" id="password"  value={getData.password} onChange={onChangeHandler} placeholder="Password" required autoComplete="off" />
-        
-        <button type="submit">SUBMIT</button>
-      </form>
-      
+    <div>
+      <div id="login-container">
+        <div className='login-containt'>
+          <div className="login">
+            <div id='message'>Log in to Spotify</div>
+            <form onSubmit={onSubmitHandler}>
+            <h2 style={{color:'red'}}>{getError}</h2>
+            <input type="email" name="email" id="email" value={getData.email} onChange={onChangeHandler} placeholder="Email address" required autoComplete="off" />
+            <input type="password" name="password" id="password"  value={getData.password} onChange={onChangeHandler} placeholder="Password" required autoComplete="off" />
+            
+            <button type="submit">SUBMIT</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
     </section>
     
   </>)
