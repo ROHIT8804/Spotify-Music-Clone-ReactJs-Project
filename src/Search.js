@@ -6,7 +6,7 @@ import { ReactComponent as PauseIcon } from "./assets/pause.svg";
 import { useNavigate } from "react-router-dom";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
-function Home({onSearch}) {
+function Search({onSearch}) {
 
   const [getList, setList] = useState([]);
   const [getSearch,setSearch] = useState('');
@@ -125,22 +125,15 @@ const [start] = useState("0");
 
   return (
   <div className="main-container">
-     {/* <div id="download" style={{width:"100%"}}>
+     <div id="download" style={{width:"100%"}}>
       <div className='navClass'>
-        <a onClick={()=>onFilterSelection("Trending songs")}>
-          Trending songs
-        </a>
-        <a onClick={()=>onFilterSelection("Top 50 of this month")}>
-          Top 50 of this month
-        </a>
-        <a onClick={()=>onFilterSelection("Top 20 of this week")}>
-          Top 20 of this week
-        </a>
-        <input type="text" placeholder='Search Here' onChange={onSearchDetails}/>
+        <div className='searchBar'>
+            <input type="text" placeholder='What do you want to play?' onChange={onSearchDetails}/>
+        </div>
       </div>
-    </div> */}
+    </div>
   <div className="spotify-playlists">
-    <h2>Spotify Playlists</h2>
+    <h2>Brows all</h2>
     <div className='list'>
       {
         getList.map((obj, index) => (
@@ -196,4 +189,4 @@ const [start] = useState("0");
   </div>)
 
 }
-export default Home;
+export default Search;

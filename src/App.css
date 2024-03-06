@@ -365,6 +365,20 @@ footer p {
     font-size: xxx-large;
     font-family: system-ui;
   }
+  .commingSoon-container{
+    margin-left: 245px;
+    margin-bottom: 100px;
+    background-color: rgb(59, 132, 221);
+  }
+  .commingSoon-container .top-bar{
+    text-align: center;
+    height: 0px;
+    color: white;
+    padding-top: 43px;
+    font-weight: bold;
+    font-size: xxx-large;
+    font-family: system-ui;
+  }
   .premium-container .top-1{
     text-align: center;
     padding: 20px;
@@ -385,6 +399,14 @@ footer p {
     background-color: #3f3e3e;
 }
 .top-3 {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top-4{
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -478,7 +500,6 @@ footer p {
   .list section {
     flex: 0 0 calc(20% - 20px);
     margin: 10px;
-    height: 100vh;
   }
   
   .item {
@@ -730,7 +751,7 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     transition: 0.3s;
-    padding: 39px 16px;
+    padding: 39px 24px;
 }
 #content {
   display: -ms-flexbox;
@@ -764,4 +785,8 @@ input[type="checkbox"] {
   color: #ffffff;
   text-align: center;
   padding: 70px;
+}
+.searchBar input{
+  margin-left: 16px;
+  width: 300px;
 }

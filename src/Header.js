@@ -27,9 +27,9 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="/premium">
-                  <span className="fa fas fa-book"></span>
-                  <span>Premium</span>
+                <Link to="/search">
+                  <span className="fa fa-search"></span>
+                  <span>Search</span>
                 </Link>
               </li>
             </ul>
@@ -38,10 +38,10 @@ function Header() {
           <div className="navigation">
             <ul>
               <li>
-                <a href="#">
+                <Link to="/commingSoon">
                   <span className="fa fas fa-plus-square"></span>
                   <span>Create Playlist</span>
-                </a>
+                </Link>
               </li>
 
               <li>
@@ -74,6 +74,11 @@ function Header() {
           <div className="navbar">
           {/* <SearchBar /> */}
             <ul>
+              <li>
+                <Link to="/premium">
+                  <span>Premium</span>
+                </Link>
+              </li>
               {!getUser && <> 
                 <li>
                   <Link to="/register">SignUp</Link>
