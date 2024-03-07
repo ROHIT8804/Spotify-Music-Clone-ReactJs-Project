@@ -516,8 +516,12 @@ footer p {
   }
   .spotify-playlists .list {
     display: flex;
-    gap: 70px;
     overflow: hidden;
+  }
+  .spotify-playlists .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .spotify-playlists .list .item {
     min-width: 140px;

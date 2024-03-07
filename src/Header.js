@@ -56,10 +56,14 @@ function Header() {
           <div className="policies">
             <ul>
               <li>
-                <a href="#">Cookies</a>
+              <Link to="/commingSoon">
+                Cookies
+                </Link>
               </li>
               <li>
-                <a href="#">Privacy</a>
+                <Link to="/commingSoon">
+                  Privacy
+                </Link>
               </li>
             </ul>
           </div>

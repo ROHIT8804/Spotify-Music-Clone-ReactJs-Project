@@ -8,6 +8,7 @@ import CommingSoon from './CommingSoon';
 import Header from './Header';
 import Search  from './Search'
 import Premium from './Premium';
+import SeeAll from './SeeAll';
 import { Navigate, BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import { useUser } from './UserProvider';
@@ -44,6 +45,7 @@ function App() {
           </ProtectedRoute>} />
           <Route path="/premium" element={<Premium />} />
           <Route path='/commingSoon' element={<CommingSoon/>} />
+          <Route path="/:filterValue" element= {<SeeAll/>}/>
         </Routes>
       </BrowserRouter>
     </div>
