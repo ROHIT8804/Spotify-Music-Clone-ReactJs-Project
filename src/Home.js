@@ -21,7 +21,6 @@ function Home({onSearch}) {
 
   const listOfDetails = async () => {
     axios.get('https://academics.newtonschool.co/api/v1/music/song?limit=5').then((response) => {
-      console.log(response.data.data);
       setList(response.data.data);
     }).catch((error) => {
       console.log(error);
@@ -123,108 +122,149 @@ const handleAddToFavorite = () => {
 
   return (
   <div className="main-container">
-  <div className="spotify-playlists">
+    <div className="spotify-playlists">
+      <div className='heading'>
+        <h2>Spotify Playlists</h2>
+        <NavLink to = {`/${"Trending songs"}`}><button id='filterValue-see-all-button' >SEE ALL</button></NavLink>
+      </div>
+      <div className='list'>
+        {
+          getList.map((obj, index) => (
+            <section key={index}>
+              <article>
+                <div className="item" onClick={() => handleMusicClick(obj)}>
+                  <img src={obj?.thumbnail} alt={obj?.title} />
+                  <div className="play">
+                    <span className="fa fa-play"></span>
+                  </div>
+                  <h4>{obj?.title}</h4>
+                  <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
+                </div>
+              </article>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+    <div className="spotify-playlists">
+      <div className='heading'>
+        <h2>Top 50 of this month</h2>
+        <NavLink to = {`/${"Top 50 of this month"}`}><button id='filterValue-see-all-button' >SEE ALL</button></NavLink>
+      </div>
+      <div className='list'>
+        {
+          getListTop50.map((obj, index) => (
+            <section key={index}>
+              <article>
+                <div className="item" onClick={() => handleMusicClick(obj)}>
+                  <img src={obj?.thumbnail} alt={obj?.title} />
+                  <div className="play">
+                    <span className="fa fa-play"></span>
+                  </div>
+                  <h4>{obj?.title}</h4>
+                  <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
+                </div>
+              </article>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+    <div className="spotify-playlists">
     <div className='heading'>
-      <h2>Spotify Playlists</h2>
-      <NavLink to = {`/${"Trending songs"}`}><button id='filterValue-see-all-button' >SEE ALL</button></NavLink>
+      <h2>Top 20 of this month</h2>
+      <NavLink to = {`/${"Top 20 of this week"}`}><button id='filterValue-see-all-button' >SEE ALL</button></NavLink>
     </div>
-    <div className='list'>
-      {
-        getList.map((obj, index) => (
-          <section key={index}>
-            <article>
-              <div className="item" onClick={() => handleMusicClick(obj)}>
-                <img src={obj?.thumbnail} alt={obj?.title} />
-                <div className="play">
-                  <span className="fa fa-play"></span>
+      <div className='list'>
+        {
+          getListTop20.map((obj, index) => (
+            <section key={index}>
+              <article>
+                <div className="item" onClick={() => handleMusicClick(obj)}>
+                  <img src={obj?.thumbnail} alt={obj?.title} />
+                  <div className="play">
+                    <span className="fa fa-play"></span>
+                  </div>
+                  <h4>{obj?.title}</h4>
+                  <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
                 </div>
-                <h4>{obj?.title}</h4>
-                <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
+              </article>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+    {selectedMusic && (
+    <section className="music-player">
+      <img src={selectedMusic.thumbnail} alt={selectedMusic.title} height="50" width="50" />
+      {getUser?.status === "success" ? (
+        <>
+          <div className="song-info">
+                  <div>{selectedMusic.title}</div>
+                  <div title={selectedMusic.artistList} className="artist-list">
+                  {selectedMusic.artistList}
+                  </div>
               </div>
-            </article>
-          </section>
-        ))
-      }
-    </div>
-  </div>
-  <div className="spotify-playlists">
-    <div className='heading'>
-      <h2>Top 50 of this month</h2>
-      <NavLink to = {`/${"Top 50 of this month"}`}><button id='filterValue-see-all-button' >SEE ALL</button></NavLink>
-    </div>
-    <div className='list'>
-      {
-        getListTop50.map((obj, index) => (
-          <section key={index}>
-            <article>
-              <div className="item" onClick={() => handleMusicClick(obj)}>
-                <img src={obj?.thumbnail} alt={obj?.title} />
-                <div className="play">
-                  <span className="fa fa-play"></span>
-                </div>
-                <h4>{obj?.title}</h4>
-                <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
-              </div>
-            </article>
-          </section>
-        ))
-      }
-    </div>
-  </div>
-  <div className="spotify-playlists">
-  <div className='heading'>
-    <h2>Top 20 of this month</h2>
-    <NavLink to = {`/${"Top 20 of this week"}`}><button id='filterValue-see-all-button' >SEE ALL</button></NavLink>
-  </div>
-    <div className='list'>
-      {
-        getListTop20.map((obj, index) => (
-          <section key={index}>
-            <article>
-              <div className="item" onClick={() => handleMusicClick(obj)}>
-                <img src={obj?.thumbnail} alt={obj?.title} />
-                <div className="play">
-                  <span className="fa fa-play"></span>
-                </div>
-                <h4>{obj?.title}</h4>
-                <h5>{obj?.artist.map((item) => item.name).join(" & ")}</h5>
-              </div>
-            </article>
-          </section>
-        ))
-      }
-    </div>
-  </div>
-  {selectedMusic && (
-  <section className="music-player">
-    <img src={selectedMusic.thumbnail} alt={selectedMusic.title} height="50" width="50" />
-    {getUser?.status === "success" ? (
-      <>
-        <div className="song-info">
-                <div>{selectedMusic.title}</div>
-                <div title={selectedMusic.artistList} className="artist-list">
-                {selectedMusic.artistList}
-                </div>
+              <button onClick={playPauseAudio} id="play" className="play-pause">
+              {isPlaying ? <PauseIcon /> : <PlayIcon />}
+            </button>
+            <div>{start}</div>
+            <div>{end}</div>
+            <input type="range" name="" id="" max={50} value={5} />
+            <audio src={selectedMusic?.audio_url} ref={audioRef} />
+            <div className="heart-icon" onClick={handleAddToFavorite}>
+              {addedToWatchlist ? <FaHeart /> : <FaRegHeart />}
             </div>
-            <button onClick={playPauseAudio} id="play" className="play-pause">
-            {isPlaying ? <PauseIcon /> : <PlayIcon />}
-          </button>
-          <div>{start}</div>
-          <div>{end}</div>
-          <input type="range" name="" id="" max={50} value={5} />
-          <audio src={selectedMusic?.audio_url} ref={audioRef} />
-          <div className="heart-icon" onClick={handleAddToFavorite}>
-            {addedToWatchlist ? <FaHeart /> : <FaRegHeart />}
-          </div>
-      </>
-    ) : (
-      <>
-        <p>Please Sign Up First</p>
-        <button onClick={() => navigate("/register")}>SignUp here!</button>
-      </>
-    )}
-  </section>
-)}
+        </>
+      ) : (
+        <>
+          <p>Please Sign Up First</p>
+          <button onClick={() => navigate("/register")}>SignUp here!</button>
+        </>
+      )}
+    </section>
+  )}
+
+<footer className="footer">
+  	 <div className="container">
+  	 	<div className="row">
+  	 		<div className="footer-col">
+  	 			<h4>company</h4>
+  	 			<ul>
+  	 				<li><a >about us</a></li>
+  	 				<li><a >our services</a></li>
+  	 				<li><a>privacy policy</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div className="footer-col">
+  	 			<h4>Communities</h4>
+  	 			<ul>
+  	 				<li><a >For Artists</a></li>
+  	 				<li><a>Developers</a></li>
+  	 				<li><a>Advertising</a></li>
+  	 				<li><a>Investors</a></li>
+  	 				<li><a>Vendors</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div className="footer-col">
+  	 			<h4>Useful links</h4>
+  	 			<ul>
+  	 				<li><a >Support</a></li>
+  	 				<li><a>Free Mobile App</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div className="footer-col">
+  	 			<h4>follow us</h4>
+  	 			<div className="social-links">
+  	 				<a href="https://www.facebook.com/SpotifyIndia/?brand_redir=6243987495"><i className="fab fa-facebook-f"></i></a>
+  	 				<a href="https://twitter.com/Spotify"><i className="fab fa-twitter"></i></a>
+  	 				<a href="https://www.instagram.com/spotify/"><i className="fab fa-instagram"></i></a>
+  	 				<a href="https://www.linkedin.com/company/spotify/"><i className="fab fa-linkedin-in"></i></a>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
 
   </div>)
 
