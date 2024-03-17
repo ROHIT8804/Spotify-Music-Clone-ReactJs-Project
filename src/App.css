@@ -279,7 +279,6 @@ footer p {
     font-family: 'Montserrat', sans-serif;
     height: 100px;
   }
-  
   .sidebar {
     position: fixed;
     left: 0;
@@ -447,10 +446,26 @@ footer p {
     align-items: center;
   }
   .topbar .navbar ul {
+    display: flex;
+    align-items: center;
     list-style: none;
   }
+  .topbar .navbar .authDiv{
+    display: flex;
+    align-items: center;
+  }
+  .topbar .navbar .userDetail{
+    padding: 2px;
+    margin: 5px;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
   .topbar .navbar ul li {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin: 0px 8px;
     width: 70px;
   }

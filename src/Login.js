@@ -29,7 +29,10 @@ function Login() {
     setError('');
     axios.post("https://academics.newtonschool.co/api/v1/user/login",getData).then((response)=>{
                console.log(response.data);
-               signInUser({status:response.data.status,token:response.data.token})
+               signInUser({status:response.data.status,
+                            token:response.data.token,
+                            userName: response.data.data.name
+                          })
                navigate('/');
     }).catch((error)=>{
       console.log(error);

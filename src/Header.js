@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useUser } from './UserProvider';
-// import "./header.css"
+import { Avatar } from "@material-ui/core";
 
 function Header() {
   const { getUser, signOutUser } = useUser();
 
   const onChangeHandler = () => {
+    console.log("9",getUser)
     localStorage.removeItem("token");
     signOutUser();
   }
@@ -91,9 +92,17 @@ function Header() {
                 <Link  to="/login">Login</Link>
               </li>
                 </>}
-                {getUser && getUser.status == "success" &&  <li>
-            <Link to="/" onClick={onChangeHandler}>Logout</Link>
-          </li>}
+                {getUser && getUser.status == "success" && 
+                <div className='authDiv'>
+                  <li>
+                    <Link to="/" onClick={onChangeHandler}>Logout</Link>
+                  </li>
+                  <li> 
+                    <Avatar  className="post__avatar" />
+                    <div className='userDetail'>{getUser.userName}</div>
+                  </li>
+                </div>
+          }
             </ul>
           </div>
         </div>
